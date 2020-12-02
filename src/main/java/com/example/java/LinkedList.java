@@ -38,14 +38,22 @@ public class LinkedList {
     }
     return node;
   }
+
   private ListNode remove(ListNode head, int positionToRemove){
     if(head != null){
       int i = START_POSITION;
-      while(head.next != null && positionToRemove != i){
+      while(head.next != null && positionToRemove != i-1){
         head = head.next;
         i++;
       }
-
+      if(i-1 == positionToRemove && head.next != null){
+        ListNode prev = head;
+        ListNode removeNode = head.next;
+        prev.next = head.next.next;
+        return removeNode;
+      }else{
+        return null;
+      }
     }
     return null;
   }
