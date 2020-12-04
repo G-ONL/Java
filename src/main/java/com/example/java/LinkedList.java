@@ -21,7 +21,7 @@ public class LinkedList {
         i++;
       }
 
-      if(node.next != null){//뒤에 더 있을 때(중간 삽입)
+      if(position== i || node.next != null){//뒤에 더 있을 때(중간 삽입)
         ListNode temp = node.next;
         node.next = nodeToAdd;
         node.next.next = temp;
@@ -36,7 +36,7 @@ public class LinkedList {
       this.tail = nodeToAdd;
       this.size++;
     }
-    return node;
+    return nodeToAdd;
   }
 
   private ListNode remove(ListNode head, int positionToRemove){
