@@ -39,17 +39,27 @@ public class LinkedList {
     return nodeToAdd;
   }
 
-  private ListNode remove(ListNode head, int positionToRemove){
-    if(head != null){
+  public ListNode remove(ListNode head, int positionToRemove){
+    ListNode node = head;
+    ListNode prev = null;
+    ///1 head + 1 노드인 상태에서 1개를 지우면
+    ///
+    if(node != null){
       int i = START_POSITION;
-      while(head.next != null && positionToRemove != i-1){
-        head = head.next;
+      while(node != null && positionToRemove != i){
+        prev = node;
+        node = node.next;
         i++;
       }
-      if(i-1 == positionToRemove && head.next != null){
-        ListNode prev = head;
-        ListNode removeNode = head.next;
-        prev.next = head.next.next;
+      if(i == positionToRemove){
+        ListNode removeNode = node;
+        if(positionToRemove == 1){
+         this.head = node.next;
+          if(this.tail ==this.head) this.tail = this.head;
+        }else {
+          prev.next = node.next;
+        }
+        this.size--;
         return removeNode;
       }else{
         return null;

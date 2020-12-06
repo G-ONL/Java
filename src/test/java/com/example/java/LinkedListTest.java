@@ -60,6 +60,28 @@ class LinkedListTest {
     }
   }
 
+  @Nested
+  @DisplayName("노드 삭제하는 테스트")
+  class removeTest{
+    ListNode node1;
+
+    @DisplayName("Head가 존재한 상태에서 Node 1개 추가하기")
+    @BeforeEach
+    void addOneNode() {
+      node1 = new ListNode(2);
+      list.add(head, node1, 2);
+    }
+
+    @DisplayName("Head+ 1개 노드 상태에서 뒤에 Node 1개 삭제 테스트")
+    @Test
+    void removeOneNodeInExistHeadNodeAndOneNode(){
+      assertThat(list.getSize()).isEqualTo(2);
+      assertThat(list.remove(head,2)).isEqualTo(node1);
+      assertThat(list.getSize()).isEqualTo(1);
+    }
+
+  }
+
 
 
 }
