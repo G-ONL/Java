@@ -6,25 +6,25 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-class StackTest {
+class StackByArrayTest {
 
   //  int 배열을 사용해서 정수를 저장하는 Stack을 구현하세요.
   //  void push(int data)를 구현하세요.
   //  int pop()을 구현하세요.
 
-  private Stack stack;
+  private StackByArray stackByArray;
 
   @DisplayName("스택 init")
   @BeforeEach
   void init() {
-    stack = new Stack();
+    stackByArray = new StackByArray();
   }
 
   @DisplayName("11개 stack push (Stack 늘리기 테스트)")
   @Test
   void pushTestElevenElementInEmptyStack() {
     for (int i = 0; i <= 10; i++) {
-      stack.push(i);
+      stackByArray.push(i);
     }
   }
 
@@ -32,10 +32,10 @@ class StackTest {
   @Test
   void popTestElevenElementInEmptyStack() {
     for (int i = 0; i <= 10; i++) {
-      stack.push(i);
+      stackByArray.push(i);
     }
     for (int i = 10; i >= 0; i--) {
-      assertThat(stack.pop()).isEqualTo(i);
+      assertThat(stackByArray.pop()).isEqualTo(i);
     }
   }
 
@@ -43,8 +43,8 @@ class StackTest {
   @Test
   void pushAndPopTestElevenElementInEmptyStack() {
     for (int i = 0; i <= 10; i++) {
-      stack.push(i);
-      assertThat(stack.pop()).isEqualTo(i);
+      stackByArray.push(i);
+      assertThat(stackByArray.pop()).isEqualTo(i);
     }
   }
 
@@ -54,10 +54,10 @@ class StackTest {
   void pushAndPopTestForThreeLoopElevenElementInEmptyStack() {
     for (int k = 0; k < 3; k++) {
       for (int i = 0; i <= 10; i++) {
-        stack.push(i);
+        stackByArray.push(i);
       }
       for (int i = 10; i >= 0; i--) {
-        assertThat(stack.pop()).isEqualTo(i);
+        assertThat(stackByArray.pop()).isEqualTo(i);
       }
     }
   }
@@ -65,6 +65,6 @@ class StackTest {
   @DisplayName("빈 스택 Pop 테스트")
   @Test
   void popTestInEmptyStack() {
-    assertThat(stack.pop()).isEqualTo(-1);
+    assertThat(stackByArray.pop()).isEqualTo(-1);
   }
 }

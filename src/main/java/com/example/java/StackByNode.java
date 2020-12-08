@@ -1,19 +1,22 @@
 package com.example.java;
 
-public class StackByNode {
+public class StackByNode implements Stack {
+
   private ListNode head;
 
+  @Override
   public void push(int data) {
     if (head == null) {
       head = new ListNode(data);
     }
     ListNode node = head;
-    while(node.next != null){
+    while (node.next != null) {
       node = node.next;
     }
     node.next = new ListNode(data);
   }
 
+  @Override
   public int pop() {
     if (head == null) {
       return -1;
