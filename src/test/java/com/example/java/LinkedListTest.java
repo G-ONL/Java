@@ -1,9 +1,7 @@
 package com.example.java;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
@@ -11,77 +9,87 @@ import org.junit.jupiter.api.Test;
 
 
 class LinkedListTest {
-  ListNode head;
+
   LinkedList list;
 
-  @DisplayName("head노드 만들기")
+  @DisplayName("list init")
   @BeforeEach
-  void head(){
+  void init() {
     list = new LinkedList();
-    head = new ListNode(1);
-    list.add(head, head, 1);
   }
 
-  @DisplayName("head 노드 추가 테스트")
+  @DisplayName("head 만들기 테스트")
   @Test
-  void addHeadTest(){
-    assertThat(list.getHead()).isEqualTo(head);
+  void makeHeadTest() {
+    ListNode head = new ListNode(1);
+    assertThat(head.data).isEqualTo(1);
   }
 
   @Nested
   @DisplayName("노드 추가하는 테스트")
-  class addTest{
+  class addTest {
+    ListNode head;
     ListNode node1;
 
-    @DisplayName("Head가 존재한 상태에서 Node 1개 추가하기")
+    @DisplayName("Head에 노드 1개 연결하기")
     @BeforeEach
     void addOneNode() {
+      head =  new ListNode(1);
       node1 = new ListNode(2);
-      list.add(head, node1, 2);
     }
 
-    @DisplayName("Head가 존재한 상태에서 Node 1개 추가한 테스트")
+    @DisplayName("LinkedList add 테스트")
     @Test
-    void addOneNodeInExistHeadNode(){
-      assertThat(list.getSize()).isEqualTo(2);
-      assertThat(list.getTail()).isEqualTo(node1);
-      assertThat(list.getHead()).isEqualTo(head);
+    void addTestInLinkedList() {
+      assertThat(list.add(head, node1, 1)).isEqualTo(node1);
+    }
+
+    @DisplayName("Head에 노드 1개 연결 테스트")
+    @Test
+    void addOneNodeInExistHeadNode() {
+      list.add(head, node1, 1);
+      assertThat(head.next).isEqualTo(node1);
     }
 
     @DisplayName("Head가 존재 + Node 1개 추가하고 중간에 Node 1개 삽입 테스트")
     @Test
-    void addOneNodeInTheMiddleExistHeadNodeAndOneNode(){
+    void addOneNodeInTheMiddleExistHeadNodeAndOneNode() {
+      list.add(head, node1, 1);
       ListNode node2 = new ListNode(3);
-      assertThat(list.add(head,node2,2).data).isEqualTo(node2.data);
-      assertThat(list.getSize()).isEqualTo(3);
-      assertThat(list.getTail()).isEqualTo(node1);
-      assertThat(list.getHead()).isEqualTo(head);
-
+      assertThat(list.add(head, node2, 1)).isEqualTo(node2);
+      assertThat(head.next).isEqualTo(node2);
+      assertThat(head.next.next).isEqualTo(node2.next);
     }
   }
 
   @Nested
   @DisplayName("노드 삭제하는 테스트")
-  class removeTest{
+  class removeTest {
+    ListNode head;
     ListNode node1;
 
     @DisplayName("Head가 존재한 상태에서 Node 1개 추가하기")
     @BeforeEach
     void addOneNode() {
+      head = new ListNode(1);
       node1 = new ListNode(2);
-      list.add(head, node1, 2);
+      list.add(head, node1, 1);
     }
 
     @DisplayName("Head+ 1개 노드 상태에서 뒤에 Node 1개 삭제 테스트")
     @Test
-    void removeOneNodeInExistHeadNodeAndOneNode(){
-      assertThat(list.getSize()).isEqualTo(2);
-      assertThat(list.remove(head,2)).isEqualTo(node1);
-      assertThat(list.getSize()).isEqualTo(1);
+    void removeOneNodeInExistHeadNodeAndOneNode() {
+      assertThat(list.remove(head, 1)).isEqualTo(node1);
+    }
+
+    @DisplayName("Head+ 2개 노드 상태에서 가운데 Node 1개 삭제 테스트")
+    @Test
+    void removeMiddleOneNodeInExistHeadNodeAndTwoNode() {
+      ListNode node2 = new ListNode(3);
+      list.add(head, node2, 2);
+      assertThat(list.remove(head, 1)).isEqualTo(node1);
+      assertThat(head.next).isEqualTo(node2);
     }
 
   }
-
-
-
 }
