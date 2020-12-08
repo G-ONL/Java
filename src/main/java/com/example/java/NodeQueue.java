@@ -2,13 +2,28 @@ package com.example.java;
 
 public class NodeQueue implements Queue {
 
+  ListNode head;
+
   @Override
   public void add(int data) {
-
+    if (head == null) {
+      head = new ListNode(data);
+      return;
+    }
+    ListNode node = head;
+    while (node.next != null) {
+      node = node.next;
+    }
+    node.next = new ListNode(data);
   }
 
   @Override
   public int poll() {
-    return 0;
+    if (head == null) {
+      return -1;
+    }
+    int removeValue = head.data;
+    head = head.next;
+    return removeValue;
   }
 }
