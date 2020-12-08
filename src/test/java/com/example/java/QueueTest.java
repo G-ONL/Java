@@ -40,7 +40,7 @@ class QueueTest {
 
   @DisplayName("불규칙하게 큐 4개 요소 poll 하기")
   @Test
-  void pollFourElementTest() {
+  void pollRandomFourElementTest() {
     queue.add(1);
     queue.add(2);
     assertThat(queue.poll()).isEqualTo(1);
