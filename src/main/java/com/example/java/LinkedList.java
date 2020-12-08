@@ -1,16 +1,15 @@
 package com.example.java;
 
-import lombok.Getter;
-
-@Getter
 public class LinkedList {
+
+  private static final int HEAD_POSITION = 0;
 
   public ListNode add(ListNode head, ListNode nodeToAdd, int position) {
     if (head == null || nodeToAdd == null) {
       return null;
     }
 
-    if (position == 0) {
+    if (position == HEAD_POSITION) {
       nodeToAdd.next = head;
       return nodeToAdd;
     }
@@ -28,7 +27,7 @@ public class LinkedList {
 
   public ListNode remove(ListNode head, int positionToRemove) {
 
-    if (positionToRemove == 0) {
+    if (positionToRemove == HEAD_POSITION) {
       head.next = null;
       return head;
     }
@@ -52,16 +51,5 @@ public class LinkedList {
     }
 
     return compareNode.equals(nodeToCheck) ? true : false;
-  }
-}
-
-class ListNode {
-
-  int data;
-  ListNode next;
-
-  public ListNode(int data) {
-    this.data = data;
-    this.next = null;
   }
 }

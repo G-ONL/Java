@@ -40,20 +40,27 @@ class LinkedListTest {
 
     @DisplayName("LinkedList add 테스트")
     @Test
-    void addTestInLinkedList() {
+    void addTestInLinkedListTest() {
       assertThat(list.add(head, node1, 1)).isEqualTo(node1);
     }
 
     @DisplayName("Head에 노드 1개 연결 테스트")
     @Test
-    void addOneNodeInExistHeadNode() {
+    void addOneNodeInExistHeadNodeTest() {
       list.add(head, node1, 1);
       assertThat(head.next).isEqualTo(node1);
     }
 
+    @DisplayName("Head에 노드 1개(Head 자리) 연결 테스트")
+    @Test
+    void addOneNodeBeforeHeadNodeTest() {
+      list.add(head, node1, 0);
+      assertThat(node1.next).isEqualTo(head);
+    }
+
     @DisplayName("Head가 존재 + Node 1개 추가하고 중간에 Node 1개 삽입 테스트")
     @Test
-    void addOneNodeInTheMiddleExistHeadNodeAndOneNode() {
+    void addOneNodeInTheMiddleExistHeadNodeAndOneNodeTest() {
       list.add(head, node1, 1);
       ListNode node2 = new ListNode(3);
       assertThat(list.add(head, node2, 1)).isEqualTo(node2);
@@ -78,13 +85,13 @@ class LinkedListTest {
 
     @DisplayName("Head+ 1개 노드 상태에서 뒤에 Node 1개 삭제 테스트")
     @Test
-    void removeOneNodeInExistHeadNodeAndOneNode() {
+    void removeOneNodeInExistHeadNodeAndOneNodeTest() {
       assertThat(list.remove(head, 1)).isEqualTo(node1);
     }
 
     @DisplayName("Head+ 2개 노드 상태에서 가운데 Node 1개 삭제 테스트")
     @Test
-    void removeMiddleOneNodeInExistHeadNodeAndTwoNode() {
+    void removeMiddleOneNodeInExistHeadNodeAndTwoNodeTest() {
       ListNode node2 = new ListNode(3);
       list.add(head, node2, 2);
       assertThat(list.remove(head, 1)).isEqualTo(node1);
@@ -110,7 +117,7 @@ class LinkedListTest {
 
     @DisplayName("Head + 2개 노드 상태에서 마지막 추가한 노드 찾기 (성공 케이스)")
     @Test
-    void successContainInOneHeadAndTwoNode() {
+    void successContainInOneHeadAndTwoNodeTest() {
       ListNode node2 = new ListNode(3);
       list.add(head, node2, 1);
       assertThat(list.contains(head, node2)).isEqualTo(true);
@@ -118,7 +125,7 @@ class LinkedListTest {
 
     @DisplayName("Head + 2개 노드 상태에서 다른 노드 찾기 (실패 케이스)")
     @Test
-    void checkContainInOneHeadAndTwoNode() {
+    void checkContainInOneHeadAndTwoNodeTest() {
       ListNode node2 = new ListNode(3);
       ListNode node4 = new ListNode(3);
       list.add(head, node2, 1);
