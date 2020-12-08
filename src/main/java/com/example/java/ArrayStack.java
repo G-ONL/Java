@@ -2,13 +2,13 @@ package com.example.java;
 
 import java.util.Arrays;
 
-public class StackByArray implements Stack {
+public class ArrayStack implements Stack {
 
   private int count;
   private int[] numbers;
   private static final int INIT_SIZE = 5;
 
-  public StackByArray() {
+  public ArrayStack() {
     this.numbers = new int[INIT_SIZE];
     this.count = 0;
   }

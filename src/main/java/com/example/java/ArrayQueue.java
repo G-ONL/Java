@@ -2,13 +2,13 @@ package com.example.java;
 
 import java.util.Arrays;
 
-public class QueueByArray implements Queue {
+public class ArrayQueue implements Queue {
 
   private int count;
   private int[] numbers;
   private static final int INIT_SIZE = 5;
 
-  QueueByArray() {
+  ArrayQueue() {
     this.numbers = new int[INIT_SIZE];
     this.count = 0;
   }

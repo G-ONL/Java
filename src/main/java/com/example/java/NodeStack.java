@@ -1,6 +1,6 @@
 package com.example.java;
 
-public class StackByNode implements Stack {
+public class NodeStack implements Stack {
 
   private ListNode head;
 

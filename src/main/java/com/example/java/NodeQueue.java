@@ -1,6 +1,6 @@
 package com.example.java;
 
-public class QueueByNode implements Queue {
+public class NodeQueue implements Queue {
 
   @Override
   public void add(int data) {

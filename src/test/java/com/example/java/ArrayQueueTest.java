@@ -6,60 +6,55 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-class QueueByArrayTest {
+class ArrayQueueTest {
 
-  private QueueByArray queueByArray;
+  private Queue arrayQueue;
 
   @DisplayName("Queue 초기화")
   @BeforeEach
   void init() {
-    queueByArray = new QueueByArray();
-  }
-
-  @DisplayName("큐에 요소 더하기")
-  void add() {
-    queueByArray.add(1);
+    arrayQueue = new ArrayQueue();
   }
 
   @DisplayName("빈 큐 요소 poll 하기")
   @Test
   void pollEmptyQueueTest() {
-    assertThat(queueByArray.poll()).isEqualTo(-1);
+    assertThat(arrayQueue.poll()).isEqualTo(-1);
   }
 
   @DisplayName("큐 10개 요소 poll 하기")
   @Test
   void pollTenElementTest() {
     for (int i = 0; i < 10; i++) {
-      queueByArray.add(i);
+      arrayQueue.add(i);
     }
     for (int i = 0; i < 10; i++) {
-      assertThat(queueByArray.poll()).isEqualTo(i);
+      assertThat(arrayQueue.poll()).isEqualTo(i);
     }
   }
 
   @DisplayName("불규칙하게 큐 4개 요소 poll 하기")
   @Test
   void pollRandomFourElementTest() {
-    queueByArray.add(1);
-    queueByArray.add(2);
-    assertThat(queueByArray.poll()).isEqualTo(1);
-    queueByArray.add(3);
-    queueByArray.add(4);
-    assertThat(queueByArray.poll()).isEqualTo(2);
-    queueByArray.add(5);
-    queueByArray.add(6);
-    queueByArray.add(7);
-    assertThat(queueByArray.poll()).isEqualTo(3);
-    assertThat(queueByArray.poll()).isEqualTo(4);
+    arrayQueue.add(1);
+    arrayQueue.add(2);
+    assertThat(arrayQueue.poll()).isEqualTo(1);
+    arrayQueue.add(3);
+    arrayQueue.add(4);
+    assertThat(arrayQueue.poll()).isEqualTo(2);
+    arrayQueue.add(5);
+    arrayQueue.add(6);
+    arrayQueue.add(7);
+    assertThat(arrayQueue.poll()).isEqualTo(3);
+    assertThat(arrayQueue.poll()).isEqualTo(4);
   }
 
   @DisplayName("큐 10개 요소 add / poll 하기")
   @Test
   void addAndPollTenElementTest() {
     for (int i = 0; i < 10; i++) {
-      queueByArray.add(i);
-      assertThat(queueByArray.poll()).isEqualTo(i);
+      arrayQueue.add(i);
+      assertThat(arrayQueue.poll()).isEqualTo(i);
     }
   }
 
