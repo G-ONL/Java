@@ -57,10 +57,10 @@ public class LinkedList {
 
 class ListNode{
 
-  Object data;
+  int data;
   ListNode next;
 
-  public ListNode(Object data) {
+  public ListNode(int data) {
     this.data = data;
     this.next = null;
   }
