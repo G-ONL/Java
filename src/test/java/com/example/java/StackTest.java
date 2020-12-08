@@ -1,6 +1,7 @@
 package com.example.java;
 
 import static org.assertj.core.api.Assertions.assertThat;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -51,7 +52,7 @@ class StackTest {
   @DisplayName("11개 push 11개 pop * 3 회 반복 테스트")
   @Test
   void pushAndPopTestForThreeLoopElevenElementInEmptyStack() {
-    for(int k = 0 ;k <3;k++) {
+    for (int k = 0; k < 3; k++) {
       for (int i = 0; i <= 10; i++) {
         stack.push(i);
       }
@@ -61,8 +62,9 @@ class StackTest {
     }
   }
 
-
-
-
-
+  @DisplayName("빈 스택 Pop 테스트")
+  @Test
+  void popTestInEmptyStack() {
+    assertThat(stack.pop()).isEqualTo(-1);
+  }
 }
