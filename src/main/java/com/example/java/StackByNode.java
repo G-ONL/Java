@@ -7,7 +7,11 @@ public class StackByNode {
     if (head == null) {
       head = new ListNode(data);
     }
-    head.next = new ListNode(data);
+    ListNode node = head;
+    while(node.next != null){
+      node = node.next;
+    }
+    node.next = new ListNode(data);
   }
 
   public int pop() {
