@@ -46,12 +46,12 @@ public class LinkedList {
 
     return removeNode;
   }
-  private boolean contains(ListNode head, ListNode nodeToCheck){
+  public boolean contains(ListNode head, ListNode nodeToCheck){
     ListNode compareNode = head;
     while(compareNode.next != null && compareNode != nodeToCheck){
       compareNode = compareNode.next;
     }
-    return compareNode.data.equals(nodeToCheck.data)  ? true : false;
+    return compareNode.equals(nodeToCheck)  ? true : false;
   }
 }
 

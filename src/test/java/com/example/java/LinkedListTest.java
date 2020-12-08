@@ -92,4 +92,38 @@ class LinkedListTest {
     }
 
   }
+
+  @Nested
+  @DisplayName("노드 포함여부")
+  class containTest {
+    ListNode head;
+    ListNode node1;
+
+
+    @DisplayName("Head가 존재한 상태에서 Node 1개 추가하기")
+    @BeforeEach
+    void addOneNode() {
+      head = new ListNode(1);
+      node1 = new ListNode(2);
+      list.add(head, node1, 1);
+    }
+
+    @DisplayName("Head + 2개 노드 상태에서 마지막 추가한 노드 찾기 (성공 케이스)")
+    @Test
+    void successContainInOneHeadAndTwoNode() {
+      ListNode node2 = new ListNode(3);
+      list.add(head, node2, 1);
+      assertThat(list.contains(head, node2)).isEqualTo(true);
+    }
+
+    @DisplayName("Head + 2개 노드 상태에서 다른 노드 찾기 (실패 케이스)")
+    @Test
+    void checkContainInOneHeadAndTwoNode() {
+      ListNode node2 = new ListNode(3);
+      ListNode node4 = new ListNode(3);
+      list.add(head, node2, 1);
+      assertThat(list.contains(head, node4)).isEqualTo(false);
+    }
+
+  }
 }
