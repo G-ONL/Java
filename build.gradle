@@ -23,6 +23,7 @@ dependencies {
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    compile group: 'org.kohsuke', name: 'github-api', version: '1.117'//github
 }
 
 test {
