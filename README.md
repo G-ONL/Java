@@ -43,8 +43,63 @@
       
    ```
    
-  
 2. switch문
+
+
+   ```java
+   //switch문의 기본 생김새
+      switch( 대상 ){
+        case 대상과 비교될 비교대상1 :
+             실행될 코드(1)
+             break;
+        case 대상과 비교될 비교대상2 :
+             실행될 코드(2)
+             break;
+      }
+      
+   //예시 1  (짤짤이를 만들기는 싫어 ! 내가 가지고 있는 돈 딱 맞는 맥주 사기)
+      int myMoney = 2700
+      switch( myMoney ){
+         case 2700:
+            buy(terra);  //terra를 사는 코드가 실행
+            break;
+         case 1700:
+            buy(filite);
+            break;
+      }
+      //그리고 switch문 밖으로 빠져나온다. (break문 때문에)
+      
+  
+   //switch - default
+      switch( 대상 ){
+        case 대상과 비교될 비교대상1 :
+             실행될 코드(1)
+             break;
+        case 대상과 비교될 비교대상2 :
+             실행될 코드(2)
+             break;
+        default:
+             아무 case에도 해당되지 않을 때 실행해줄 코드
+             break;
+      }
+      
+   //예시 2 (짤짤이를 만들기는 싫어 ! 내가 가지고 있는 돈 딱 맞는 맥주 사기, 돈 안되면 안사고 집 갈꺼야)
+      int myMoney = 2500
+      switch( myMoney ){
+         case 2700:
+            buy(terra); 
+            break;
+         case 1700:
+            buy(filite);
+            break;
+         default :
+            leave(store);  //편의점을 떠나는 코드 실행
+            break;
+      }
+      // 그리고 switch문 밖으로 빠져나온다. (break문 때문에)
+      
+   //break 문이 없다면 case에 해당되는 그 코드부터 아래에 코드를 모두 실행한다.
+   ```
 
 ### 반복문
 
