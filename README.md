@@ -134,8 +134,11 @@
     }
    
     이렇게 수행할 경우 어떤 맥주를 살 수 있을까? 
+    
     beers.size()가 4이니까 4번 돌지 않을까?
+    
     그러면 다 살 수 있는거 아닌가??
+    
     아마 그대로 실행을 해보면 "Terra"와 "Cass"만 살 수 있는 것을 확인 할 수 있을 것이다.
     
     
@@ -147,12 +150,19 @@
     }
     
     이유는  beers.size()가 remove 할 때 마다 줄어든다는 것이다.
+    
     문제 1에서 int i =0 으로 시작할 때 beers.size()는 4 입니다.
+    
     Terra를 살 것이고,  Terra가 list에서 없어집니다. 남아있는 list는 FiLite, Cass, Hite죠
+    
     i가 1증가해서 i = 1일 때는 beers.size()는 3 입니다.
+    
     위에서 남아있는 list(FiLite, Cass, Hite )에서 1번 인덱스 자리는 Cass가 되겠죠.
+    
     그래서 Cass도 사고, 리스트에서 제거가 되고 남아있는 list에는 FiLite, Hite가 있겠죠.
+    
     i가 1증가해서 i = 2일 때 beers.size()는 2입니다.
+    
     size()보다 i가 작아야 하기 때문에 for문 조건식에 만족을 하지 못해 그대로 종료하게 됩니다.
     
    ```
