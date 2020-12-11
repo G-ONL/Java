@@ -167,3 +167,27 @@
     
    ```
 2. while문
+
+   ```java
+   //while문의 기본 모습
+   while(조건식){
+      반복 실행하고자 하는 코드
+   }
+   
+   // 예제 1 (주문이 들어온 음식을  순서대로 출력하기)
+   Queue queue = new LinkedList<String>();
+    queue.add("아구찜");
+    queue.add("족발");
+    queue.add("짜장면");
+    queue.add("햄버거");
+    
+    while(!queue.isEmpty()){ //queue가 비어있지 않으면 코드 
+      System.out.println(queue.poll());
+    }
+   
+   // do ~ while문의 기본 모습
+   // while과의 가장 큰 차이는 do while의 경우는 조건식과 상관없이 우선 1번 코드를 실행한다
+   do{
+      반복 실행하고자 하는 코드
+   }while(조건식)
+  ```
