@@ -1,7 +1,9 @@
-package com.example.java;
+package com.example.java.four;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import com.example.java.four.NodeQueue;
+import com.example.java.four.Queue;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
